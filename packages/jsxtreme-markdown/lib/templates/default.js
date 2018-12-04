@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const omit = require('lodash/omit');
 const stringifyObject = require('stringify-object');
 
 module.exports = data => {
@@ -28,7 +28,7 @@ module.exports = data => {
     import React from 'react';
     ${prepended}
     const frontMatter = ${stringifyObject(
-      _.omit(data.frontMatter, ['prependJs', 'wrapper'])
+      omit(data.frontMatter, ['prependJs', 'wrapper'])
     )};
 
     export default class ${data.name} extends React.PureComponent {

@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const set = require('lodash/set');
 const visit = require('unist-util-visit');
 const nodeToString = require('mdast-util-to-string');
 const slugger = require('github-slugger')();
@@ -34,8 +34,8 @@ function plugin() {
         level: node.depth
       });
 
-      _.set(node, ['data', 'id'], slug);
-      _.set(node, ['data', 'hProperties', 'id'], slug);
+      set(node, ['data', 'id'], slug);
+      set(node, ['data', 'hProperties', 'id'], slug);
     });
   }
 }

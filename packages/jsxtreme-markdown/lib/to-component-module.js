@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const union = require('lodash/union');
 const babel = require('babel-core');
 const presetEnv = require('babel-preset-env');
 const presetReact = require('babel-preset-react');
@@ -41,7 +41,7 @@ module.exports = (input, options) => {
     rawFrontMatter: frontMatterResult.frontmatter,
     frontMatter: extendedFrontMatter,
     wrapper: frontMatterResult.attributes.wrapper || options.wrapper,
-    prependJs: _.union(
+    prependJs: union(
       options.prependJs,
       frontMatterResult.attributes.prependJs
     ),
